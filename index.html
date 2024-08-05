@@ -8,75 +8,90 @@
     <title>Amazon Product Page</title>
     <style>
         body {
-            background-color: black; /* Couleur de l'arrière-plan en noir */
-            color: white; /* Texte en blanc pour une meilleure lisibilité */
+            background-color: black;
+            color: white;
         }
 
         .datetime {
             text-align: center;
-            color: gray; /* Couleur grise */
+            color: gray;
         }
 
         .date, .time {
-            font-size: 48px; /* Grande taille de police pour la date et l'heure */
+            font-size: 48px;
         }
 
         .container {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center; /* Centrer les lignes horizontalement */
-            align-items: center; /* Centrer les lignes verticalement */
-            min-height: calc(100vh - 7cm); /* Prendre en compte l'espace en haut de la page */
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 7cm);
         }
 
         .product {
-            width: calc(100% / 4); /* 4 images par ligne pour ordinateur */
+            width: calc(100% / 4);
             margin-bottom: 20px;
-            text-align: center; /* Centrer le contenu horizontalement */
-            border: 1px solid red; /* Bordure rouge */
-            border-radius: 10px; /* Coins arrondis de 10px */
-            overflow: hidden; /* Masquer le contenu qui dépasse */
-            padding: 10px; /* Ajouter un peu d'espace autour du contenu */
-            display: flex; /* Utiliser flexbox pour centrer le contenu verticalement */
-            flex-direction: column; /* Permet de centrer le contenu verticalement */
-            background-color: black; /* Couleur de l'arrière-plan en noir */
-            color: white; /* Texte en blanc */
+            text-align: center;
+            border: 1px solid red;
+            border-radius: 10px;
+            overflow: hidden;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            background-color: black;
+            color: white;
         }
 
-        /* Réglage de la hauteur des rectangles */
         .product .content {
-            height: 200px; /* Hauteur uniforme pour tous les rectangles */
-            overflow: hidden; /* Masquer le texte au-delà de cette hauteur */
+            height: 200px;
+            overflow: hidden;
         }
 
         .product img {
-            width: 100%; /* Pour que l'image remplisse le rectangle */
+            width: 100%;
             height: auto;
-            display: block; /* S'assurer que l'image est centrée */
+            display: block;
         }
 
         .product .description {
-            margin-top: 10px; /* Espace entre l'image et la description */
+            margin-top: 10px;
         }
 
         .product .more-link {
             margin-top: 5px;
-            cursor: pointer; /* Permet de cliquer sur le lien */
-            color: blue; /* Changer la couleur du texte */
+            cursor: pointer;
+            color: blue;
         }
 
-        /* Règles pour les tablettes */
         @media (min-width: 768px) and (max-width: 991px) {
             .product {
-                width: calc(100% / 3); /* 3 images par ligne pour tablette */
+                width: calc(100% / 3);
             }
         }
 
-        /* Règles pour les mobiles */
         @media (max-width: 767px) {
             .product {
-                width: 100%; /* Prendre toute la largeur disponible sur mobile */
+                width: 100%;
             }
+        }
+
+        /* Style pour le bouton flottant */
+        .floating-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            text-align: center;
+            font-size: 18px;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
@@ -90,7 +105,6 @@
 
     <div class="container">
 
-
 <div class="product"><a href="https://www.amazon.com/dp/B003P02EGU?tag=eloabder-20&linkCode=osi&th=1&psc=1"><img src="https://m.media-amazon.com/images/I/51aUMBXF71L._SL500_.jpg" alt="Product Image"></a><p>Sparkling Ice, Black Raspberry Sparkling Water, Zero Sugar Flavored Water, with Vitamins and Antioxidants, Low Calorie Beverage, 17 fl oz Bottles (Pack of 12)</p><a href="https://www.amazon.com/dp/B003P02EGU?tag=eloabder-20&linkCode=osi&th=1&psc=1">View Product</a></div><div class="product"><a href="https://www.amazon.com/dp/B0CKK43XXS?tag=eloabder-20&linkCode=osi&th=1&psc=1"><img src="https://m.media-amazon.com/images/I/51H5mXFgbsL._SL500_.jpg" alt="Product Image"></a><p>Scott Paper Towels, Choose-A-Sheet, 6 Double Rolls = 12 Regular Rolls (100 Sheets Per Roll)</p><a href="https://www.amazon.com/dp/B0CKK43XXS?tag=eloabder-20&linkCode=osi&th=1&psc=1">View Product</a></div>
 
 
@@ -1033,6 +1047,9 @@
 <div class="product"><a href="https://www.amazon.com/dp/B08FC6SLZG?tag=eloabder-20&linkCode=osi&th=1&psc=1"><img src="https://m.media-amazon.com/images/I/517qMsNsBRL._SL500_.jpg" alt="Product Image"></a><p>Food Grade Stainless Steel Kitchen Tongs for Cooking,BBQ - 7 ，9 and 12 Inch,Set of 3 Heavy Duty Locking Metal Food Tongs Non-Slip Grip</p><a href="https://www.amazon.com/dp/B08FC6SLZG?tag=eloabder-20&linkCode=osi&th=1&psc=1">View Product</a></div>
 
     </div>
+
+    <!-- Bouton flottant -->
+    <button class="floating-button" onclick="window.location.href='https://www.iasmarket.us'">Go Back</button>
 
     <script>
         function updateTime() {
@@ -1063,7 +1080,7 @@
         }
 
         updateTime();
-        setInterval(updateTime, 1000); // Mettre à jour chaque seconde
+        setInterval(updateTime, 1000);
     </script>
 </body>
 
