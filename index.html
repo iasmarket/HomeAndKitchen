@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Product Page</title>
+    <style>
+        body {
+            background-color: black; /* Couleur de l'arrière-plan en noir */
+            color: white; /* Texte en blanc pour une meilleure lisibilité */
+        }
+
+        .datetime {
+            text-align: center;
+            color: gray; /* Couleur grise */
+        }
+
+        .date, .time {
+            font-size: 48px; /* Grande taille de police pour la date et l'heure */
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Centrer les lignes horizontalement */
+            align-items: center; /* Centrer les lignes verticalement */
+            min-height: calc(100vh - 7cm); /* Prendre en compte l'espace en haut de la page */
+        }
+
+        .product {
+            width: calc(100% / 4); /* 4 images par ligne pour ordinateur */
+            margin-bottom: 20px;
+            text-align: center; /* Centrer le contenu horizontalement */
+            border: 1px solid red; /* Bordure rouge */
+            border-radius: 10px; /* Coins arrondis de 10px */
+            overflow: hidden; /* Masquer le contenu qui dépasse */
+            padding: 10px; /* Ajouter un peu d'espace autour du contenu */
+            display: flex; /* Utiliser flexbox pour centrer le contenu verticalement */
+            flex-direction: column; /* Permet de centrer le contenu verticalement */
+            background-color: black; /* Couleur de l'arrière-plan en noir */
+            color: white; /* Texte en blanc */
+        }
+
+        /* Réglage de la hauteur des rectangles */
+        .product .content {
+            height: 200px; /* Hauteur uniforme pour tous les rectangles */
+            overflow: hidden; /* Masquer le texte au-delà de cette hauteur */
+        }
+
+        .product img {
+            width: 100%; /* Pour que l'image remplisse le rectangle */
+            height: auto;
+            display: block; /* S'assurer que l'image est centrée */
+        }
+
+        .product .description {
+            margin-top: 10px; /* Espace entre l'image et la description */
+        }
+
+        .product .more-link {
+            margin-top: 5px;
+            cursor: pointer; /* Permet de cliquer sur le lien */
+            color: blue; /* Changer la couleur du texte */
+        }
+
+        /* Règles pour les tablettes */
+        @media (min-width: 768px) and (max-width: 991px) {
+            .product {
+                width: calc(100% / 3); /* 3 images par ligne pour tablette */
+            }
+        }
+
+        /* Règles pour les mobiles */
+        @media (max-width: 767px) {
+            .product {
+                width: 100%; /* Prendre toute la largeur disponible sur mobile */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="datetime">
+        <div class="date" id="comment"></div>
+        <div class="date" id="date"></div>
+        <div class="time" id="time"></div>
+    </div>
+
+    <div class="container">
+
+    </div>
+
+    <script>
+        function updateTime() {
+            const optionsDate = {
+                timeZone: 'America/Los_Angeles',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                weekday: 'long'
+            };
+            const optionsTime = {
+                timeZone: 'America/Los_Angeles',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            };
+
+            const now = new Date();
+            const formatterDate = new Intl.DateTimeFormat('en-US', optionsDate);
+            const formatterTime = new Intl.DateTimeFormat('en-US', optionsTime);
+
+            const formattedDate = formatterDate.format(now);
+            const formattedTime = formatterTime.format(now);
+
+            document.getElementById('comment').textContent = "As an AMAZON Associate, I earn from qualifying purchases.";
+            document.getElementById('date').textContent = formattedDate;
+            document.getElementById('time').textContent = formattedTime;
+        }
+
+        updateTime();
+        setInterval(updateTime, 1000); // Mettre à jour chaque seconde
+    </script>
+</body>
+
+</html>
